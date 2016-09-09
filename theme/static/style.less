@@ -1,0 +1,112 @@
+// Core variables and mixins
+@import "bootstrap/less/variables.less";
+@import "bootstrap/less/mixins.less";
+
+// Reset and dependencies
+@import "bootstrap/less/normalize.less";
+@import "bootstrap/less/print.less";
+@import "bootstrap/less/glyphicons.less";
+
+// Core CSS
+@import "bootstrap/less/scaffolding.less";
+@import "bootstrap/less/type.less";
+@import "bootstrap/less/code.less";
+@import "bootstrap/less/grid.less";
+@import "bootstrap/less/tables.less";
+@import "bootstrap/less/forms.less";
+@import "bootstrap/less/buttons.less";
+
+// Components
+@import "bootstrap/less/component-animations.less";
+@import "bootstrap/less/dropdowns.less";
+@import "bootstrap/less/button-groups.less";
+@import "bootstrap/less/input-groups.less";
+@import "bootstrap/less/navs.less";
+@import "bootstrap/less/navbar.less";
+@import "bootstrap/less/pagination.less";
+@import "bootstrap/less/pager.less";
+@import "bootstrap/less/list-group.less";
+@import "bootstrap/less/wells.less";
+@import "bootstrap/less/jumbotron.less";
+
+// Utility classes
+@import "bootstrap/less/utilities.less";
+@import "bootstrap/less/responsive-utilities.less";
+
+@primary-color: #283E51;
+@secondary-color: #4B79A1;
+@content-bg: lighten(average(#fff, @secondary-color), 20%);
+
+@brand-primary: @primary-color;
+@headings-color: @primary-color;
+@code-color: @primary-color;
+@code-bg: lighten(@content-bg, 15%);
+@well-bg: lighten(@content-bg, 15%);
+@hr-border: fade(@primary-color, 40%);
+@page-header-border-color: @hr-border;
+@navbar-default-bg: @content-bg;
+
+@footer-height: 40px;
+@navbar-height: 40px;
+
+html {
+	height: 100%;
+}
+
+body {
+	background: @secondary-color;
+	background: linear-gradient(120deg, @secondary-color, @primary-color);
+	background-attachment: fixed;
+	display: table;
+	table-layout: fixed;
+	height: 100%;
+	width: 100%;
+}
+
+
+.page-row {
+	display: table-row;
+	height: 1px;
+}
+
+.page-row-expanded {
+	height: 100%;
+}
+
+.navbar-default {
+	border-bottom-left-radius: @border-radius-large;
+	border-bottom-right-radius: @border-radius-large;
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
+}
+
+#footer {
+	background-color: @content-bg;
+	width: 100%;
+	min-height: @footer-height;
+	line-height: @footer-height;
+	border-top-left-radius: @border-radius-large;
+	border-top-right-radius: @border-radius-large;
+
+	p {
+		margin: 0;
+	}
+}
+
+#main {
+	background-color: @content-bg;
+	border-radius: @border-radius-large;
+	margin-bottom: @footer-height;
+}
+
+.intro-cell {
+	margin-bottom: 2em;
+
+	.icon {
+		i {
+			font-size: 5em;
+		}
+		margin-bottom: 1em;
+		text-align: center;
+	}
+}

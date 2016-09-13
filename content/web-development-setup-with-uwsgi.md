@@ -141,7 +141,7 @@ ExecStart=/usr/bin/uwsgi \
           --vassals-set die-on-idle=1
 
 [Install]
-Alias=default.target
+WantedBy=default.target
 
 ~~~~~~~~~~~~~~
 

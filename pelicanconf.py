@@ -4,6 +4,7 @@ from __future__ import unicode_literals
 AUTHOR = 'Jan Buchar'
 SITENAME = 'Jan Buchar'
 SITEURL = '/'
+GOOGLE_ANALYTICS = 'UA-83918237-1'
 
 PATH = 'content'
 THEME = 'theme'

@@ -49,10 +49,10 @@ as a parameter.
 
 I'm not saying that function templates are bad (well, they kinda are - seen 
 those weird, mile-long error messages from the compiler when you screw someting 
-up?), but C++11 also has the `std::function` type template that we can request 
-that in our function that takes a callback. The only drawback is that we have to 
-be a bit more verbose - `std::function` is constructed using a functor (or a 
-lambda).
+up?), but C++11 also has the `std::function` type template that we can use as a 
+parameter type in our callback-requesting function. The only drawback is that we 
+have to be a bit more verbose - `std::function` is constructed using a functor 
+(or a lambda).
 
 ~~~~~~~~~~~~~C++
 int main(int argc, char **argv)

@@ -1,6 +1,7 @@
 Title: About me
 Slug: about
-save_as: index.html
+Lang: en
+Save_as: index.html
 
 <div class="row">
 	<div class="intro-cell col-sm-4">

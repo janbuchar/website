@@ -3,6 +3,7 @@ Slug: web-development-setup-with-uwsgi
 Date: 2016-09-05 21:05:00
 Category: Web development
 Tags: uwsgi, nginx, linux, web, python, php
+Lang: en
 
 Until recently, I've used pretty much the same LAMP environment I installed when 
 I started with GNU/Linux. It had many drawbacks, the most important being 

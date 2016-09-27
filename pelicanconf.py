@@ -10,11 +10,23 @@ PATH = 'content'
 THEME = 'theme'
 PLUGIN_PATHS = ['pelican-plugins']
 
-PLUGINS = ['assets']
+PLUGINS = [
+        'assets', 
+        #'i18n_subsites'
+]
 
 TIMEZONE = 'Europe/Prague'
-
 DEFAULT_LANG = 'en'
+
+#I18N_UNTRANSLATED_ARTICLES = 'keep'
+#I18N_SUBSITES = {
+    #'cs': {}
+#}
+
+DATE_FORMATS = { 
+   'en': '%d/%m/%y',
+   'cs': '%-d.%-m.%Y'
+} 
 
 # Feed generation is usually not desired when developing
 FEED_ALL_ATOM = None

@@ -2,5 +2,5 @@
 	path = pelican-plugins
 	url = https://github.com/getpelican/pelican-plugins.git
 [submodule "theme/static/bootstrap"]
-	path = theme/static/bootstrap
+	path = theme/bootstrap
 	url = https://github.com/twbs/bootstrap.git

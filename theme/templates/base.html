@@ -53,7 +53,7 @@
     {# Twitter Cards tags #}
     {% include 'includes/twitter_cards.html' %}
 
-    {% assets filters="less,cssmin", output="css/style.min.css", "style.less" %}
+    {% assets filters="less,cssmin", output="css/style.min.css", "../style.less" %}
         <link rel="stylesheet" href="{{ SITEURL }}/{{ ASSET_URL }}"/>
     {% endassets %}
 

@@ -1,10 +1,10 @@
 {% extends "base.html" %}
-{% block title %}Archives - {{ SITENAME }}{% endblock %}
+{% block title %}{% trans sitename=SITENAME %}Archives - {{ sitename }}{% endtrans %}{% endblock %}
 {% block breadcrumbs %}
     {% if DISPLAY_BREADCRUMBS %}
     <ol class="breadcrumb">
         <li><a href="{{ SITEURL }}" title="{{ SITENAME }}"><i class="fa fa-home fa-lg"></i></a></li>
-        <li class="active">Archives</li>
+	<li class="active">{% trans %}Archives{% endtrans %}</li>
     </ol>
     {% endif %}
 {% endblock %}

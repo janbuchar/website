@@ -1,0 +1,102 @@
+# Czech translations for .
+# Copyright (C) 2016 ORGANIZATION
+# This file is distributed under the same license as the  project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version:  1.0\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2016-11-28 22:06+0100\n"
+"PO-Revision-Date: 2016-11-27 23:44+0100\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: cs\n"
+"Language-Team: cs <LL@li.org>\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.3.4\n"
+
+#: templates/archives.html:2
+#, python-format
+msgid "Archives - %(sitename)s"
+msgstr "Archiv - %(sitename)s"
+
+#: templates/archives.html:7
+msgid "Archives"
+msgstr "Archiv"
+
+#: templates/article_list.html:14
+msgid "More"
+msgstr "Číst dál"
+
+#: templates/author.html:3
+#, python-format
+msgid "Articles by %(author)s - %(sitename)s"
+msgstr "Články od autora %(author)s - %(sitename)s"
+
+#: templates/author.html:9
+msgid "Authors"
+msgstr "Autoři"
+
+#: templates/categories.html:2 templates/categories.html:8
+#: templates/category.html:11 templates/includes/sidebar.html:45
+msgid "Categories"
+msgstr "Kategorie"
+
+#: templates/categories.html:15
+#, python-format
+msgid "All Categories for %(sitename)s"
+msgstr "Všechny kategorie webu %(sitename)s"
+
+#: templates/includes/article_info.html:2
+msgid "Date"
+msgstr "Datum"
+
+#: templates/includes/article_info.html:8
+msgid "Modified"
+msgstr "Změněno"
+
+#: templates/includes/article_info.html:17 templates/includes/sidebar.html:80
+msgid "Series"
+msgstr "Série"
+
+#: templates/includes/article_info.html:24
+msgid "By"
+msgstr "Autor"
+
+#: templates/includes/article_info.html:30
+msgid "Category"
+msgstr "Kategorie"
+
+#: templates/includes/footer.html:10
+#, python-format
+msgid "Powered by %(pelican)s"
+msgstr "Vytvořeno pomocí %(pelican)s"
+
+#: templates/includes/footer.html:18
+msgid "Back to top"
+msgstr "Zpět nahoru"
+
+#: templates/includes/sidebar.html:8
+msgid "Social"
+msgstr "Sociální sítě"
+
+#: templates/includes/sidebar.html:31
+msgid "Recent posts"
+msgstr "Nejnovější články"
+
+#: templates/includes/sidebar.html:64 templates/includes/taglist.html:2
+msgid "Tags"
+msgstr "Tagy"
+
+#: templates/includes/sidebar.html:84
+msgid "Previous article"
+msgstr "Předchozí článek"
+
+#: templates/includes/sidebar.html:90
+msgid "Next article"
+msgstr "Další článek"
+

@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 from __future__ import unicode_literals
+import os
 
 AUTHOR = 'Jan Buchar'
 SITENAME = 'Jan Buchar'
@@ -11,22 +12,37 @@ THEME = 'theme'
 PLUGIN_PATHS = ['pelican-plugins']
 
 PLUGINS = [
-        'assets', 
-        #'i18n_subsites'
+    'assets', 
+    'i18n_subsites'
 ]
 
 TIMEZONE = 'Europe/Prague'
 DEFAULT_LANG = 'en'
 
-#I18N_UNTRANSLATED_ARTICLES = 'keep'
-#I18N_SUBSITES = {
-    #'cs': {}
-#}
+I18N_UNTRANSLATED_ARTICLES = 'keep'
+I18N_SUBSITES = {
+    'cs': {}
+}
 
 DATE_FORMATS = { 
-   'en': '%d/%m/%y',
-   'cs': '%-d.%-m.%Y'
+    'en': '%d/%m/%y',
+    'cs': '%-d.%-m.%Y'
 } 
+
+ASSET_SOURCE_PATHS = [
+    './',
+]
+
+language_map = {
+    'en': 'English',
+    'cs': 'Čeština'
+}
+
+JINJA_EXTENSIONS = ['jinja2.ext.i18n']
+JINJA_FILTERS = {
+    "basename": os.path.basename,
+    "lang_name": lambda lang: language_map.get(lang, lang)
+}
 
 # Feed generation is usually not desired when developing
 FEED_ALL_ATOM = None
@@ -38,6 +54,8 @@ AUTHOR_FEED_RSS = None
 # Site structure
 ARTICLE_URL = 'blog/{slug}.html'
 ARTICLE_SAVE_AS = 'blog/{slug}.html'
+ARTICLE_LANG_URL = 'blog/{slug}-{lang}.html'
+ARTICLE_LANG_SAVE_AS = 'blog/{slug}-{lang}.html'
 CATEGORY_URL = 'blog/category/{slug}.html'
 CATEGORY_SAVE_AS = 'blog/category/{slug}.html'
 CATEGORIES_URL = 'blog/category/'
@@ -54,6 +72,7 @@ PAGE_SAVE_AS = '{slug}.html'
 PAGE_URL = '{slug}.html'
 INDEX_SAVE_AS = 'blog/index.html'
 
+# Sidebar and menu
 DISPLAY_RECENT_POSTS_ON_SIDEBAR = True
 DISPLAY_PAGES_ON_MENU = False
 DISPLAY_CATEGORIES_ON_MENU = False

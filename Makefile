@@ -8,10 +8,6 @@ OUTPUTDIR=$(BASEDIR)/output
 CONFFILE=$(BASEDIR)/pelicanconf.py
 PUBLISHCONF=$(BASEDIR)/publishconf.py
 
-FTP_HOST=42229.w29.wedos.net
-FTP_USER=w42229
-FTP_TARGET_DIR=/www
-
 SSH_HOST=greenland
 SSH_PORT=22
 SSH_USER=teyras
@@ -60,7 +56,7 @@ clean:
 	[ ! -d $(OUTPUTDIR) ] || rm -rf $(OUTPUTDIR)
 
 regenerate:
-	$(PELICAN) -r $(INPUTDIR) -o $(OUTPUTDIR) -s $(CONFFILE) $(PELICANOPTS)
+	inotifywait -m -q -e close_write -r content theme pelicanconf.py | while read -r f e; do make html; done
 
 serve:
 ifdef PORT

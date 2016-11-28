@@ -53,8 +53,8 @@
     {# Twitter Cards tags #}
     {% include 'includes/twitter_cards.html' %}
 
-    {% assets filters="less,cssmin", output="css/style.min.css", "../style.less" %}
-        <link rel="stylesheet" href="{{ SITEURL }}/{{ ASSET_URL }}"/>
+    {% assets filters="less,cssmin", output="css/style.min.css", "style.less" %}
+    <link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/{{ ASSET_URL | basename }}"/>
     {% endassets %}
 
     <link href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/font-awesome.min.css" rel="stylesheet">
@@ -106,7 +106,7 @@
         <div class="navbar-header">
             {% if MENUITEMS or (PAGES and DISPLAY_PAGES_ON_MENU) or (categories and DISPLAY_CATEGORIES_ON_MENU) %}
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-                <span class="sr-only">Toggle navigation</span>
+		    <span class="sr-only">{% trans %}Toggle navigation{% endtrans %}</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
@@ -138,6 +138,12 @@
                 {% endif %}
             </ul>
             <ul class="nav navbar-nav navbar-right">
+		    {% if extra_siteurls and I18N_SUBSITES %}
+		    {% for lang in [main_lang] + (I18N_SUBSITES.keys() | list) %}
+		    <li{% if lang == DEFAULT_LANG %} class="active"{% endif %}><a href="{{ extra_siteurls.get(lang, SITEURL) or '/' }}">{{ lang | lang_name }}</a></li>
+		    {% endfor %}
+		    <!-- {{ extra_siteurls }} -->
+		    {% endif %}
             {% if 'tipue_search' in PLUGINS %}
               <li><span>
                 <form class="navbar-search" action="{{ SEARCH_URL | default('/search.html') }}">
@@ -146,7 +152,7 @@
               </li>
             {% endif %}
             {% if ARCHIVES_SAVE_AS %}
-              <li><a href="{{ SITEURL }}/{{ ARCHIVES_URL | default('archives.html') }}"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
+	    <li><a href="{{ SITEURL }}/{{ ARCHIVES_URL | default('archives.html') }}"><i class="fa fa-th-list"></i><span class="icon-label">{% trans %}Archives{% endtrans %}</span></a></li>
             {% endif %}
             </ul>
         </div>

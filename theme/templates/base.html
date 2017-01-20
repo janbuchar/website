@@ -120,7 +120,7 @@
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
                 {% for title, link in MENUITEMS %}
-                    <li{% if p == page %} class="active"{% endif %}><a href="{{ link }}">{{ title }}</a></li>
+		<li{% if p == page %} class="active"{% endif %}><a href="{{ SITEURL }}/{{ link }}">{{ title }}</a></li>
                 {% endfor %}
                 {% if DISPLAY_PAGES_ON_MENU %}
                     {% for p in pages %}

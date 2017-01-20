@@ -38,7 +38,7 @@ language_map = {
     'cs': 'Čeština'
 }
 
-JINJA_EXTENSIONS = ['jinja2.ext.i18n']
+JINJA_ENVIRONMENT = {'extensions': ['jinja2.ext.i18n']}
 JINJA_FILTERS = {
     "basename": os.path.basename,
     "lang_name": lambda lang: language_map.get(lang, lang)
@@ -87,7 +87,7 @@ LINKS = []
 # Social widget
 SOCIAL = (
     ('Github', 'https://github.com/Teyras'),
-    ('Linkedin', 'https://www.linkedin.com/profile/view?id=285045605'),
+    ('Linkedin', 'https://www.linkedin.com/in/jan-buchar'),
     ('Stack overflow', 'https://stackoverflow.com/users/2839862/teyras?tab=profile')
 )
 

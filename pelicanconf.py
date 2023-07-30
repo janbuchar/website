@@ -86,7 +86,7 @@ LINKS = []
 
 # Social widget
 SOCIAL = (
-    ('Github', 'https://github.com/Teyras'),
+    ('Github', 'https://github.com/janbuchar'),
     ('Linkedin', 'https://www.linkedin.com/in/jan-buchar'),
     ('Stack overflow', 'https://stackoverflow.com/users/2839862/teyras?tab=profile')
 )

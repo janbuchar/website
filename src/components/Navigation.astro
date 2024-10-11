@@ -1,0 +1,90 @@
+---
+import { css, cva } from "@styled-system";
+import NavLink from "@components/NavLink.astro";
+
+const navLink = cva({
+  base: {
+    padding: "0 calc(token(spacing.large) / 2)",
+    whiteSpace: "nowrap",
+    height: "var(--navbar-height)",
+    color: "polarNight4",
+    "&:hover": {
+      color: "polarNight1",
+    },
+  },
+  variants: {
+    activity: {
+      inactive: {
+        background: "none",
+      },
+      active: {
+        background: "snowStorm1",
+      },
+    },
+    style: {
+      base: {
+        lineHeight: "calc(var(--navbar-height) + 2px)", // Nudge regular links to "brand" level
+      },
+      brand: {
+        fontSize: "brand",
+        fontWeight: "bolder",
+        lineHeight: "var(--navbar-height)",
+      },
+    },
+  },
+  compoundVariants: [
+    {
+      style: "brand",
+      activity: "active",
+      css: {
+        background: "none",
+      },
+    },
+  ],
+  defaultVariants: { activity: "inactive", style: "base" },
+});
+---
+
+<header
+  class={css({
+    background: "snowStorm3",
+    marginBottom: "bigger",
+    display: "flex",
+    flexDirection: { base: "column", sm: "row" },
+    alignItems: { base: "stretch", sm: "unset" },
+    justifyContent: { base: "unset", sm: "space-between" },
+    "& nav": {
+      display: "flex",
+      alignItems: "flex-start",
+      padding: "calc(token(spacing.large) / 2)",
+    },
+  })}
+>
+  <nav>
+    <NavLink
+      href="/"
+      class={navLink({ style: "brand" })}
+      activeClass={navLink({ style: "brand", activity: "active" })}
+    >
+      Jan Buchar
+    </NavLink>
+    <NavLink
+      href="/blog"
+      class={navLink()}
+      activeClass={navLink({ activity: "active" })}
+    >
+      Blog
+    </NavLink>
+  </nav>
+  <nav>
+    <NavLink href="/" class={navLink()}> English </NavLink>
+    <NavLink href="/cs" class={navLink()}> Česky </NavLink>
+    <NavLink
+      href="/archive"
+      class={navLink()}
+      activeClass={navLink({ activity: "active" })}
+    >
+      Archives
+    </NavLink>
+  </nav>
+</header>

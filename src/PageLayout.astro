@@ -1,5 +1,11 @@
 ---
+import { css } from "@styled-system";
+import Navigation from "@components/Navigation.astro";
 import "./index.css";
+
+interface Props {
+  title: string;
+}
 ---
 
 <!doctype html>
@@ -8,9 +14,40 @@ import "./index.css";
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
-    <title>Vite App</title>
+    <title>{Astro.props.title}</title>
   </head>
-  <body>
-    <slot />
+  <body
+    class={css({
+      background: `linear-gradient(120deg,token(colors.polarNight4),token(colors.polarNight2))`,
+      backgroundAttachment: "fixed",
+      fontFamily: "normal",
+      fontSize: "normal",
+      display: "flex",
+      justifyContent: "center",
+    })}
+  >
+    <div
+      class={css({
+        background: "white",
+        minHeight: "100vh",
+        width: {
+          base: "100%",
+          sm: "calc(token(breakpoints.sm) - token(spacing.large))",
+          lg: "calc(token(breakpoints.lg) - token(spacing.large))",
+          xl: "calc(token(breakpoints.xl) - token(spacing.large))",
+        },
+      })}
+    >
+      <Navigation />
+      <main
+        class={css({
+          paddingLeft: "large",
+          paddingRight: "large",
+          paddingBottom: "large",
+        })}
+      >
+        <slot />
+      </main>
+    </div>
   </body>
 </html>

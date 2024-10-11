@@ -1,0 +1,21 @@
+---
+interface Props {
+  href: string;
+  activity?: "active" | "inactive";
+  class?: string;
+  activeClass?: string;
+}
+
+const isActive =
+  Astro.props.activity === undefined
+    ? Astro.url.pathname.startsWith(Astro.props.href)
+    : Astro.props.activity === "active";
+
+const className = isActive
+  ? (Astro.props.activeClass ?? Astro.props.class)
+  : Astro.props.class;
+---
+
+<a href={Astro.props.href} class={className}>
+  <slot />
+</a>

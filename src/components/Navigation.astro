@@ -1,6 +1,6 @@
 ---
 import { css, cva } from "@styled-system";
-import NavLink from "@components/NavLink.astro";
+import Link from "@components/Link.astro";
 
 const navLink = cva({
   base: {
@@ -61,30 +61,31 @@ const navLink = cva({
   })}
 >
   <nav>
-    <NavLink
+    <Link
       href="/"
-      class={navLink({ style: "brand" })}
-      activeClass={navLink({ style: "brand", activity: "active" })}
+      class={(isActive) =>
+        navLink({ style: "brand", activity: isActive ? "active" : "inactive" })}
     >
       Jan Buchar
-    </NavLink>
-    <NavLink
+    </Link>
+    <Link
       href="/blog"
-      class={navLink()}
-      activeClass={navLink({ activity: "active" })}
+      matcher={/\/blog\/.*/}
+      class={(isActive) =>
+        navLink({ activity: isActive ? "active" : "inactive" })}
     >
       Blog
-    </NavLink>
+    </Link>
   </nav>
   <nav>
-    <NavLink href="/" class={navLink()}> English </NavLink>
-    <NavLink href="/cs" class={navLink()}> Česky </NavLink>
-    <NavLink
+    <a href="/" class={navLink()}> English </a>
+    <a href="/cs" class={navLink()}> Česky </a>
+    <Link
       href="/archive"
-      class={navLink()}
-      activeClass={navLink({ activity: "active" })}
+      class={(isActive) =>
+        navLink({ activity: isActive ? "active" : "inactive" })}
     >
       Archives
-    </NavLink>
+    </Link>
   </nav>
 </header>

@@ -18,7 +18,7 @@ interface Props {
   </head>
   <body
     class={css({
-      background: `linear-gradient(120deg,token(colors.polarNight4),token(colors.polarNight2))`,
+      background: `[linear-gradient(120deg,token(colors.polarNight4),token(colors.polarNight2))]`,
       backgroundAttachment: "fixed",
       fontFamily: "normal",
       fontSize: "normal",
@@ -29,12 +29,12 @@ interface Props {
     <div
       class={css({
         background: "white",
-        minHeight: "100vh",
+        minHeight: "[100vh]",
         width: {
-          base: "100%",
-          sm: "calc(token(breakpoints.sm) - token(spacing.large))",
-          lg: "calc(token(breakpoints.lg) - token(spacing.large))",
-          xl: "calc(token(breakpoints.xl) - token(spacing.large))",
+          base: "[100%]",
+          sm: "[calc(token(breakpoints.sm) - token(spacing.large))]",
+          lg: "[calc(token(breakpoints.lg) - token(spacing.large))]",
+          xl: "[calc(token(breakpoints.xl) - token(spacing.large))]",
         },
       })}
     >

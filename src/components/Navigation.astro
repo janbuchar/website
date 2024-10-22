@@ -4,7 +4,8 @@ import Link from "@components/Link.astro";
 
 const navLink = cva({
   base: {
-    padding: "0 calc(token(spacing.large) / 2)",
+    paddingX: "large-half",
+    paddingY: "none",
     whiteSpace: "nowrap",
     height: "var(--navbar-height)",
     color: "polarNight4",
@@ -23,7 +24,7 @@ const navLink = cva({
     },
     style: {
       base: {
-        lineHeight: "calc(var(--navbar-height) + 2px)", // Nudge regular links to "brand" level
+        lineHeight: "[calc(var(--navbar-height) + 2px)]", // Nudge regular links to "brand" level
       },
       brand: {
         fontSize: "brand",
@@ -56,7 +57,7 @@ const navLink = cva({
     "& nav": {
       display: "flex",
       alignItems: "flex-start",
-      padding: "calc(token(spacing.large) / 2)",
+      padding: "large-half",
     },
   })}
 >

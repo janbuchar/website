@@ -1,8 +1,12 @@
 import { defineConfig } from "@pandacss/dev";
+import pandaPreset from "@pandacss/preset-panda";
 
 export default defineConfig({
   // Whether to use css reset
   preflight: true,
+
+  // Get rid of default tokens
+  presets: [{ name: "my-preset", theme: { ...pandaPreset.theme, tokens: {} } }],
 
   // Where to look for your css declarations
   include: ["./src/**/*.{js,jsx,ts,tsx,astro}"],
@@ -21,6 +25,7 @@ export default defineConfig({
     extend: {
       tokens: {
         colors: {
+          none: { value: "none" },
           polarNight1: { value: "#2e3440" },
           polarNight2: { value: "#3b4252" },
           polarNight3: { value: "#434c5e" },
@@ -76,10 +81,12 @@ export default defineConfig({
           bolder: { value: "600" },
         },
         spacing: {
+          none: { value: "0rem" },
           small: { value: "0.5rem" },
           medium: { value: "1rem" },
           bigger: { value: "1.5rem" },
           large: { value: "2rem" },
+          "large-half": { value: "1rem" },
           extraLarge: { value: "3rem" },
         },
         lineHeights: {

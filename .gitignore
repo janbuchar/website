@@ -32,3 +32,6 @@ styled-system-studio
 
 # mise
 .mise.toml
+
+# yarn v4
+.yarn

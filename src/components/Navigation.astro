@@ -1,4 +1,5 @@
 ---
+import { getAbsoluteLocaleUrl } from "astro:i18n";
 import { css, cva } from "@styled-system";
 import Link from "@components/Link.astro";
 
@@ -44,6 +45,8 @@ const navLink = cva({
   ],
   defaultVariants: { activity: "inactive", style: "base" },
 });
+
+const path = Astro.url.pathname.replace(/^\/cs/, "");
 ---
 
 <header
@@ -63,14 +66,14 @@ const navLink = cva({
 >
   <nav>
     <Link
-      href="/"
+      href={getAbsoluteLocaleUrl(Astro.currentLocale!, "/")}
       class={(isActive) =>
         navLink({ style: "brand", activity: isActive ? "active" : "inactive" })}
     >
       Jan Buchar
     </Link>
     <Link
-      href="/blog"
+      href={getAbsoluteLocaleUrl(Astro.currentLocale!, "/blog")}
       matcher={/\/blog\/.*/}
       class={(isActive) =>
         navLink({ activity: isActive ? "active" : "inactive" })}
@@ -79,10 +82,10 @@ const navLink = cva({
     </Link>
   </nav>
   <nav>
-    <a href="/" class={navLink()}> English </a>
-    <a href="/cs" class={navLink()}> Česky </a>
+    <a href={getAbsoluteLocaleUrl("en", path)} class={navLink()}> English </a>
+    <a href={getAbsoluteLocaleUrl("cs", path)} class={navLink()}> Česky </a>
     <Link
-      href="/archive"
+      href={getAbsoluteLocaleUrl(Astro.currentLocale!, "/blog/archives")}
       class={(isActive) =>
         navLink({ activity: isActive ? "active" : "inactive" })}
     >

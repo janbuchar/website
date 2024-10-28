@@ -1,0 +1,20 @@
+---
+import { Anchor } from "@elements";
+import { takeWhile } from "lodash-es";
+import { parseFragment, serializeOuter } from "parse5";
+
+interface Props {
+  continuationLink: string;
+}
+
+const content = parseFragment(await Astro.slots.render("default"));
+const preview = takeWhile(content.childNodes, (node) => node.nodeName !== "hr");
+const hasContinuation = content.childNodes.length > preview.length;
+---
+
+<Fragment set:html={preview.map((node) => serializeOuter(node)).join("")} />
+{
+  hasContinuation && (
+    <Anchor href={Astro.props.continuationLink}>Continue reading...</Anchor>
+  )
+}

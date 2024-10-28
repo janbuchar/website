@@ -1,16 +1,28 @@
 ---
 import PageLayout from "@layout";
 import { getCollection } from "astro:content";
+import ContentPreview from "@components/ContentPreview.astro";
+import { Heading } from "@elements";
+import { components } from "@elements";
 
 const posts = await getCollection("blog");
 ---
 
 <PageLayout title="Blog">
   {
-    posts.map((it) => (
-      <h1>
-        <a href={`/blog/${it.slug}`}>{it.data.title}</a>
-      </h1>
-    ))
+    posts.map(async (it) => {
+      const { Content } = await it.render();
+
+      return (
+        <Fragment>
+          <Heading>
+            <a href={`/blog/${it.slug}`}>{it.data.title}</a>
+          </Heading>
+          <ContentPreview continuationLink={`/blog/${it.slug}`}>
+            <Content components={components} />
+          </ContentPreview>
+        </Fragment>
+      );
+    })
   }
 </PageLayout>

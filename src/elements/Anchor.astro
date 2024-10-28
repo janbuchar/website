@@ -1,0 +1,10 @@
+---
+import { css } from "@styled-system";
+---
+
+<a
+  {...Astro.props}
+  class={css({ color: "frost4", textDecoration: "underline" })}
+>
+  <slot />
+</a>

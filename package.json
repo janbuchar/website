@@ -15,10 +15,13 @@
     "@astrojs/check": "^0.9.4",
     "@astrojs/mdx": "^3.1.8",
     "astro": "4.16.7",
+    "lodash-es": "^4.17.21",
+    "parse5": "^7.2.1",
     "typescript": "^5.6.3"
   },
   "devDependencies": {
     "@pandacss/dev": "^0.47.0",
+    "@types/lodash-es": "^4",
     "prettier": "^3.3.3",
     "prettier-plugin-astro": "^0.14.1"
   },

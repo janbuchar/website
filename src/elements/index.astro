@@ -1,0 +1,20 @@
+---
+import _PageTitle from "./PageTitle.astro";
+export const PageTitle = _PageTitle;
+
+import _Heading from "./Heading.astro";
+export const Heading = _Heading;
+
+import _Subheading from "./Subheading.astro";
+export const Subheading = _Subheading;
+
+import _Paragraph from "./Paragraph.astro";
+export const Paragraph = _Paragraph;
+
+export const components = {
+  h1: PageTitle,
+  h2: Heading,
+  h3: Subheading,
+  p: Paragraph,
+};
+---

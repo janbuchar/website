@@ -1,9 +1,11 @@
-Title: Custom modifier-only shortcuts in Plasma 5.8
-Slug: plasma-custom-modifier-only-shortcuts
-Lang: en
-Date: 2016-10-07 15:00:00
-Category: KDE
-Tags: KDE, Plasma, KWin, Linux
+---
+title: Custom modifier-only shortcuts in Plasma 5.8
+slug: plasma-custom-modifier-only-shortcuts
+lang: en
+date: 2016-10-07 15:00:00
+category: KDE
+tags: [KDE, Plasma, KWin, Linux]
+---
 
 The latest release of KDE Plasma (5.8) brought a new feature - it can open the
 desktop menu when the meta (super, Windows...) key is pressed. Like in Windows
@@ -17,8 +19,8 @@ First, make sure KWin isn't running. I recommend opening a terminal and running
 and the desktop menu should be opened with Shift. Edit `~/.config/kwinrc` and
 add the following lines:
 
-```
-[ModifierOnlyShortuts]
+```ini
+[ModifierOnlyShortcuts]
 Meta=org.kde.krunner,/App,,display
 Shift=org.kde.plasmashell,/PlasmaShell,org.kde.PlasmaShell,activateLauncherMenu
 Alt=

@@ -6,6 +6,7 @@
       "@styled-system": ["styled-system/css"],
       "@styled-system/*": ["styled-system/*"],
       "@components/*": ["src/components/*"],
+      "@elements": ["src/elements/index.astro"],
       "@layout": ["src/PageLayout.astro"]
     }
   }

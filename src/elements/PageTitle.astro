@@ -1,0 +1,7 @@
+---
+import { css } from "@styled-system";
+---
+
+<h1 {...Astro.props} class={css({ fontSize: "pageTitle" })}>
+  <slot />
+</h1>

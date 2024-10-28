@@ -14,7 +14,9 @@ interface Props {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
-    <title>{Astro.props.title}</title>
+    <title>
+      {Astro.props.title ? `${Astro.props.title} | Jan Buchar` : "Jan Buchar"}
+    </title>
   </head>
   <body
     class={css({

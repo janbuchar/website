@@ -1,9 +1,11 @@
-Title: Using Cython to protect a Python codebase
-Slug: using-cython-to-protect-a-python-codebase
-Lang: en
-Date: 2017-07-31 14:45:00
-Category: Programming
-Tags: Python, Cython
+---
+title: Using Cython to protect a Python codebase
+slug: using-cython-to-protect-a-python-codebase
+lang: en
+date: 2017-07-31 14:45:00
+category: Programming
+tags: [Python, Cython]
+---
 
 Recently, I worked on a Python project that required the whole codebase to be
 protected using Cython. Although protecting Python sources from reverse
@@ -15,6 +17,8 @@ This security comes with a price though - the primary use case for Cython is
 writing compiled extensions that can easily interface with Python code.
 Therefore, the support for non-trivial module/package structures is rather
 limited and we have to do some extra work to achieve the desired results.
+
+---
 
 The first obstacle we had to overcome was that it's difficult to compile a whole
 Python package (as in "directory containing an `__init__.py` file") with Cython.

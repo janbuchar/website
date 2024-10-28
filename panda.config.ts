@@ -75,6 +75,7 @@ export default defineConfig({
           brand: { value: "1.25rem" },
           subheading: { value: "1.5rem" },
           heading: { value: "2rem" },
+          pageTitle: { value: "2.5rem" },
         },
         fontWeights: {
           normal: { value: "normal" },

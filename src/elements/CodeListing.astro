@@ -1,0 +1,25 @@
+---
+import { css, cx } from "@styled-system";
+import { verticalSpacing } from "@styled-system/patterns";
+import { parseFragment, serialize } from "parse5";
+
+const props = {
+  ...Astro.props,
+  ["class"]: cx(
+    css({
+      borderRadius: "small",
+      padding: "medium",
+    }),
+    verticalSpacing(),
+  ),
+};
+
+const content = parseFragment(await Astro.slots.render("default"));
+for (const node of content.childNodes) {
+  if (node.nodeName === "code") {
+    node.attrs = node.attrs.filter((it) => it.name !== "class");
+  }
+}
+---
+
+<pre {...props}><Fragment set:html={serialize(content)} /></pre>

@@ -14,6 +14,12 @@ export const Paragraph = _Paragraph;
 import _Anchor from "./Anchor.astro";
 export const Anchor = _Anchor;
 
+import _InlineCode from "./InlineCode.astro";
+export const InlineCode = _InlineCode;
+
+import _CodeListing from "./CodeListing.astro";
+export const CodeListing = _CodeListing;
+
 import HorizontalLine from "./HorizontalLine.astro";
 
 export const components = {
@@ -23,5 +29,7 @@ export const components = {
   p: Paragraph,
   a: Anchor,
   hr: HorizontalLine,
+  code: InlineCode,
+  pre: CodeListing,
 };
 ---

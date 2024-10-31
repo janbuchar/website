@@ -29,7 +29,7 @@ that all uWSGI configuration files found there are running. It also reloads the
 applications when their configuration changes. We'll be putting our applications
 in `~/WWW`, with the following structure:
 
-```
+```plaintext
 ~/WWW
 ├── app1
 │   ├── app1.ini
@@ -45,7 +45,7 @@ As we see, there is a folder for each application that contains its sources and
 also a uWSGI configuration file. The name of this file is used as the vassal
 name by the Emperor. We'll start the Emperor now:
 
-```{.shell}
+```shell
 uwsgi --emperor "~/WWW/*/*.ini" \
       --emperor-on-demand-directory /tmp/uwsgi/ \
       --logto %h/WWW/uwsgi.log \
@@ -68,7 +68,7 @@ make a group for our user and nginx and `chown` the sockets to this group.
 Now, let's add an application! This one will be in PHP, but use whatever you
 feel like. First, the "application" itself:
 
-```{.php}
+```php
 # ~/WWW/testapp/index.php
 <?php
 echo "Hello from uWSGI";
@@ -76,7 +76,7 @@ echo "Hello from uWSGI";
 
 Now, we'll write the configuration file that tells uWSGI how to run it.
 
-```{.ini}
+```ini
 # ~/WWW/testapp/testapp.ini
 [uwsgi]
 chdir = %d
@@ -103,7 +103,7 @@ subdomains on localhost to corresponding UNIX domain sockets that belong to the
 uWSGI vassals - requests on `myapp.localhost` will be passed to
 `/tmp/uwsgi/myapp.socket`.
 
-```{.nginx}
+```nginx
 # nginx.conf
 http {
         server {
@@ -129,7 +129,7 @@ systemd. One of its better features is that it lets users run their own services
 without any special privileges. We'll use that to make sure our uWSGI Emperor is
 always running. First, we create a systemd unit file:
 
-```{.ini}
+```ini
 # ~/.config/systemd/user/uwsgi-emperor.service
 [Unit]
 Description=uWSGI Emperor
@@ -152,7 +152,7 @@ WantedBy=default.target
 
 Now we'll make sure that the uWSGI Emperor starts when we log in:
 
-```{.shell}
+```shell
 $ systemctl --user daemon-reload
 $ systemctl --user enable uwsgi-emperor
 $ systemctl --user start uwsgi-emperor

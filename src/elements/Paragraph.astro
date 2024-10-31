@@ -1,7 +1,7 @@
 ---
-import { css } from "@styled-system";
+import { verticalSpacing } from "@styled-system/patterns";
 ---
 
-<p {...Astro.props} class={css({ marginBottom: "medium" })}>
+<p {...Astro.props} class={verticalSpacing()}>
   <slot />
 </p>

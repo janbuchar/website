@@ -83,6 +83,7 @@ export default defineConfig({
         },
         spacing: {
           none: { value: "0rem" },
+          tiny: { value: "0.1rem" },
           small: { value: "0.5rem" },
           medium: { value: "1rem" },
           bigger: { value: "1.5rem" },
@@ -97,6 +98,20 @@ export default defineConfig({
         radii: {
           small: { value: "3px" },
         },
+      },
+    },
+  },
+
+  patterns: {
+    extend: {
+      verticalSpacing: {
+        transform: () => ({
+          marginTop: "medium",
+          marginBottom: "medium",
+          "&:last-child": {
+            marginBottom: "unset",
+          },
+        }),
       },
     },
   },

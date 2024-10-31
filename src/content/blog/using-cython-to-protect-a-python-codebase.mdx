@@ -24,7 +24,7 @@ The first obstacle we had to overcome was that it's difficult to compile a whole
 Python package (as in "directory containing an `__init__.py` file") with Cython.
 Imagine the following structure:
 
-```
+```plaintext
 src
 ├── mypkg
 │   ├── bar.py
@@ -131,7 +131,7 @@ format. So, let's try to create a wheel with `python setup.py bdist_wheel`!
 After the command finishes, there should be a `dist` folder that contains a
 wheel file. Unpacking it yields something like this:
 
-```
+```plaintext
 .
 ├── mypkg
 │   ├── bar.cpython-36m-x86_64-linux-gnu.so
@@ -172,7 +172,7 @@ setup(
 
 The content of the built wheel should then look like this:
 
-```
+```plaintext
 dist/
 ├── mypkg
 │   ├── bar.cpython-36m-x86_64-linux-gnu.so

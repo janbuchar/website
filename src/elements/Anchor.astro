@@ -1,10 +1,17 @@
 ---
-import { css } from "@styled-system";
+import { css, cx } from "@styled-system";
+const { class: className, ...props } = Astro.props;
 ---
 
 <a
-  {...Astro.props}
-  class={css({ color: "frost4", textDecoration: "underline" })}
+  {...props}
+  class={cx(
+    className,
+    css({
+      color: "frost4",
+      textDecoration: "underline",
+    }),
+  )}
 >
   <slot />
 </a>

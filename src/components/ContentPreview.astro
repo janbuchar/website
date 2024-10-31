@@ -1,5 +1,7 @@
 ---
 import { Anchor } from "@elements";
+import { css } from "@styled-system";
+import { verticalSpacing } from "@styled-system/patterns";
 import { takeWhile } from "lodash-es";
 import { parseFragment, serializeOuter } from "parse5";
 
@@ -15,6 +17,11 @@ const hasContinuation = content.childNodes.length > preview.length;
 <Fragment set:html={preview.map((node) => serializeOuter(node)).join("")} />
 {
   hasContinuation && (
-    <Anchor href={Astro.props.continuationLink}>Continue reading...</Anchor>
+    <Anchor
+      class:list={[verticalSpacing(), css({ display: "block" })]}
+      href={Astro.props.continuationLink}
+    >
+      Continue reading...
+    </Anchor>
   )
 }

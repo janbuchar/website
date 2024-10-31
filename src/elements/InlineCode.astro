@@ -1,0 +1,21 @@
+---
+import { css } from "@styled-system";
+---
+
+{
+  (
+    <code
+      {...Astro.props}
+      class={css({
+        background: "snowStorm1",
+        borderRadius: "small",
+        fontSize: "small",
+        fontFamily: "monospace",
+        paddingY: "tiny",
+        paddingX: "small",
+      })}
+    >
+      <slot />
+    </code>
+  )
+}

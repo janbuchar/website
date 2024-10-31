@@ -3,6 +3,7 @@ import type { GetStaticPaths } from "astro";
 import PageLayout from "@layout";
 import { getCollection, getEntry } from "astro:content";
 import { PageTitle, components } from "@elements";
+import PostMetadata from "@components/PostMetadata.astro";
 
 const post = await getEntry("blog", Astro.params.slug);
 const { Content } = await post.render();
@@ -15,5 +16,6 @@ export const getStaticPaths = (async () => {
 
 <PageLayout title={post.data.title}>
   <PageTitle>{post.data.title}</PageTitle>
+  <PostMetadata post={post} />
   <Content components={components} />
 </PageLayout>

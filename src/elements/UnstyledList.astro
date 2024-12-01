@@ -1,0 +1,15 @@
+---
+import { css } from "@styled-system";
+---
+
+<ul
+  {...Astro.props}
+  class={css({
+    listStyleType: "none",
+    ["& li"]: {
+      marginY: "small",
+    },
+  })}
+>
+  <slot />
+</ul>

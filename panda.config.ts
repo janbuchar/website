@@ -17,7 +17,7 @@ export default defineConfig({
   strictTokens: true,
 
   globalVars: {
-    "--navbar-height": "40px",
+    "--navbar-height": "50px",
   },
 
   // Useful for theme customization

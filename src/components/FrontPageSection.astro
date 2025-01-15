@@ -1,0 +1,12 @@
+---
+import { Heading } from "@elements";
+
+interface Props {
+  title: string;
+}
+---
+
+<div>
+  <Heading>{Astro.props.title}</Heading>
+  <slot />
+</div>

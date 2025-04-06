@@ -1,5 +1,7 @@
 ---
 import { Heading } from "@elements";
+import { css } from "@styled-system";
+import { hstack } from "@styled-system/patterns";
 
 interface Props {
   title: string;
@@ -7,6 +9,19 @@ interface Props {
 ---
 
 <div>
-  <Heading>{Astro.props.title}</Heading>
+  <Heading class={hstack({ gap: "medium", justify: "stretch" })}
+    ><div
+      class={css({
+        fontSize: "subheading",
+        background: "polarNight4",
+        padding: "small",
+        borderRadius: "large",
+        color: "snowStorm2",
+      })}
+    >
+      <slot name="icon" />
+    </div>
+    {Astro.props.title}</Heading
+  >
   <slot />
 </div>

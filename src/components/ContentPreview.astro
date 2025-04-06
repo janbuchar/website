@@ -1,5 +1,6 @@
 ---
 import { Anchor } from "@elements";
+import { useTranslations } from "@i18n";
 import { css } from "@styled-system";
 import { verticalSpacing } from "@styled-system/patterns";
 import { takeWhile } from "lodash-es";
@@ -12,6 +13,8 @@ interface Props {
 const content = parseFragment(await Astro.slots.render("default"));
 const preview = takeWhile(content.childNodes, (node) => node.nodeName !== "hr");
 const hasContinuation = content.childNodes.length > preview.length;
+
+const t = useTranslations(Astro.currentLocale);
 ---
 
 <Fragment set:html={preview.map((node) => serializeOuter(node)).join("")} />
@@ -21,7 +24,7 @@ const hasContinuation = content.childNodes.length > preview.length;
       class:list={[verticalSpacing(), css({ display: "block" })]}
       href={Astro.props.continuationLink}
     >
-      Continue reading...
+      {t("continueReading")}
     </Anchor>
   )
 }

@@ -2,13 +2,12 @@
 import { getAbsoluteLocaleUrl } from "astro:i18n";
 import { css, cva } from "@styled-system";
 import Link from "@components/Link.astro";
+import { hstack } from "@styled-system/patterns";
+import { languages, stripLanguageFromPath } from "@i18n";
 
 const navLink = cva({
   base: {
-    paddingX: "large-half",
-    paddingY: "none",
-    whiteSpace: "nowrap",
-    height: "var(--navbar-height)",
+    fontSize: "larger",
     color: "polarNight4",
     "&:hover": {
       color: "polarNight1",
@@ -16,80 +15,40 @@ const navLink = cva({
   },
   variants: {
     activity: {
-      inactive: {
-        background: "none",
-      },
+      inactive: {},
       active: {
-        background: "snowStorm1",
-      },
-    },
-    style: {
-      base: {
-        lineHeight: "[calc(var(--navbar-height) + 2px)]", // Nudge regular links to "brand" level
-      },
-      brand: {
-        fontSize: "brand",
-        fontWeight: "bolder",
-        lineHeight: "var(--navbar-height)",
+        textDecoration: "underline",
       },
     },
   },
-  compoundVariants: [
-    {
-      style: "brand",
-      activity: "active",
-      css: {
-        background: "none",
-      },
-    },
-  ],
-  defaultVariants: { activity: "inactive", style: "base" },
+  defaultVariants: { activity: "inactive" },
 });
 
-const path = Astro.url.pathname.replace(/^\/cs/, "");
+const path = stripLanguageFromPath(Astro.url.pathname);
 ---
 
-<header
-  class={css({
-    background: "snowStorm3",
-    marginBottom: "bigger",
-    display: "flex",
-    flexDirection: { base: "column", sm: "row" },
-    alignItems: { base: "stretch", sm: "unset" },
-    justifyContent: { base: "unset", sm: "space-between" },
-    "& nav": {
-      display: "flex",
-      alignItems: "flex-start",
-      paddingX: "large-half",
-    },
-  })}
->
-  <nav>
-    <Link
-      href={getAbsoluteLocaleUrl(Astro.currentLocale!, "/")}
-      class={(isActive) =>
-        navLink({ style: "brand", activity: isActive ? "active" : "inactive" })}
-    >
-      Jan Buchar
-    </Link>
-    <Link
-      href={getAbsoluteLocaleUrl(Astro.currentLocale!, "/blog")}
-      matcher={/\/blog\/.*/}
-      class={(isActive) =>
-        navLink({ activity: isActive ? "active" : "inactive" })}
-    >
-      Blog
-    </Link>
-  </nav>
-  <nav>
-    <a href={getAbsoluteLocaleUrl("en", path)} class={navLink()}> English </a>
-    <a href={getAbsoluteLocaleUrl("cs", path)} class={navLink()}> Česky </a>
-    <Link
-      href={getAbsoluteLocaleUrl(Astro.currentLocale!, "/blog/archives")}
-      class={(isActive) =>
-        navLink({ activity: isActive ? "active" : "inactive" })}
-    >
-      Archives
-    </Link>
-  </nav>
-</header>
+<nav class:list={[hstack({ gap: "medium" }), css({ alignItems: "stretch" })]}>
+  <Link
+    href={getAbsoluteLocaleUrl(Astro.currentLocale!, "/")}
+    matcher={/^\/$/}
+    class={(isActive) =>
+      navLink({ activity: isActive ? "active" : "inactive" })}>Bio</Link
+  >
+  <Link
+    href={getAbsoluteLocaleUrl(Astro.currentLocale!, "/blog")}
+    matcher={/\/blog\/.*/}
+    class={(isActive) =>
+      navLink({ activity: isActive ? "active" : "inactive" })}>Blog</Link
+  >
+  {
+    Astro.currentLocale === "en" ? (
+      <Link href={getAbsoluteLocaleUrl("cs", path)} class={() => navLink()}>
+        {languages.cs}
+      </Link>
+    ) : (
+      <Link href={getAbsoluteLocaleUrl("en", path)} class={() => navLink()}>
+        {languages.en}
+      </Link>
+    )
+  }
+</nav>

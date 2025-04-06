@@ -16,10 +16,6 @@ export default defineConfig({
 
   strictTokens: true,
 
-  globalVars: {
-    "--navbar-height": "50px",
-  },
-
   // Useful for theme customization
   theme: {
     extend: {
@@ -72,7 +68,7 @@ export default defineConfig({
         fontSizes: {
           small: { value: "0.8rem" },
           normal: { value: "1rem" },
-          brand: { value: "1.25rem" },
+          larger: { value: "1.25rem" },
           subheading: { value: "1.5rem" },
           heading: { value: "2rem" },
           pageTitle: { value: "2.5rem" },
@@ -83,7 +79,7 @@ export default defineConfig({
         },
         spacing: {
           none: { value: "0rem" },
-          tiny: { value: "0.1rem" },
+          tiny: { value: "0.2rem" },
           small: { value: "0.5rem" },
           medium: { value: "1rem" },
           bigger: { value: "1.5rem" },
@@ -97,6 +93,10 @@ export default defineConfig({
         },
         radii: {
           small: { value: "3px" },
+          large: { value: "8px" },
+        },
+        borderWidths: {
+          thick: { value: "6px" },
         },
       },
     },

@@ -1,11 +1,11 @@
 ---
 import type { GetStaticPaths } from "astro";
-import PageLayout from "@layout";
 import { getCollection, getEntry } from "astro:content";
-import { PageTitle, components } from "@elements";
+import { components, Heading } from "@elements";
 import PostMetadata from "@components/PostMetadata.astro";
+import BlogLayout from "@/BlogLayout.astro";
 
-const post = await getEntry("blog", Astro.params.slug);
+const post = await getEntry("blog", Astro.params.slug)!;
 const { Content } = await post.render();
 
 export const getStaticPaths = (async () => {
@@ -14,8 +14,8 @@ export const getStaticPaths = (async () => {
 }) satisfies GetStaticPaths;
 ---
 
-<PageLayout title={post.data.title}>
-  <PageTitle>{post.data.title}</PageTitle>
+<BlogLayout title={post.data.title}>
+  <Heading>{post.data.title}</Heading>
   <PostMetadata post={post} />
   <Content components={components} />
-</PageLayout>
+</BlogLayout>

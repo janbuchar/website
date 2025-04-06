@@ -1,10 +1,12 @@
 ---
 import { css } from "@styled-system";
-import Navigation from "@components/Navigation.astro";
 import "./index.css";
+import { PageTitle } from "@elements";
+import Navigation from "@components/Navigation.astro";
 
 interface Props {
-  title: string;
+  title?: string;
+  pageTitle: string;
 }
 ---
 
@@ -40,14 +42,55 @@ interface Props {
         },
       })}
     >
-      <Navigation />
       <main
         class={css({
+          paddingTop: "medium",
           paddingLeft: "large",
           paddingRight: "large",
           paddingBottom: "large",
+          display: "grid",
+          gridTemplateAreas: `
+          'top top top'
+          'left right right'
+          `,
+          gridTemplateColumns: "[1fr 2fr]",
+          gridRowGap: "large",
+          gridColumnGap: "extraLarge",
         })}
       >
+        <div class={css({ gridArea: "top" })}>
+          <h1
+            class={css({
+              fontSize: "pageTitle",
+              borderBottomColor: "snowStorm1",
+              borderBottomWidth: "thick",
+              borderStyle: "solid",
+              display: "flex",
+              alignItems: "baseline",
+              justifyContent: "space-between",
+              paddingBottom: "tiny",
+            })}
+          >
+            {Astro.props.pageTitle}
+            <Navigation />
+          </h1>
+        </div>
+        {
+          !Astro.slots.has("left") ? (
+            <div class={css({ gridArea: "left/left/left/right" })}>
+              <slot name="main" />
+            </div>
+          ) : (
+            <Fragment>
+              <div class={css({ gridArea: "right" })}>
+                <slot name="main" />
+              </div>
+              <div class={css({ gridArea: "left" })}>
+                <slot name="left" />
+              </div>
+            </Fragment>
+          )
+        }
         <slot />
       </main>
     </div>

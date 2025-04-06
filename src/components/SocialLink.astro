@@ -1,0 +1,19 @@
+---
+import { css } from "@styled-system";
+import { hstack } from "@styled-system/patterns";
+import { Icon } from "astro-icon/components";
+
+interface Props {
+  title: string;
+  href: string;
+  icon: string;
+}
+---
+
+<a
+  href={Astro.props.href}
+  class:list={[hstack(), css({ color: "polarNight1" })]}
+>
+  <Icon name={Astro.props.icon} class={css({ fontSize: "larger" })} />
+  {Astro.props.title}</a
+>

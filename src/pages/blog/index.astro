@@ -1,15 +1,15 @@
 ---
-import PageLayout from "@layout";
 import { getCollection } from "astro:content";
 import ContentPreview from "@components/ContentPreview.astro";
 import { Heading } from "@elements";
 import { components } from "@elements";
 import PostMetadata from "@components/PostMetadata.astro";
+import BlogLayout from "@/BlogLayout.astro";
 
 const posts = await getCollection("blog");
 ---
 
-<PageLayout title="Blog">
+<BlogLayout title="Blog">
   {
     posts.map(async (it) => {
       const { Content } = await it.render();
@@ -27,4 +27,4 @@ const posts = await getCollection("blog");
       );
     })
   }
-</PageLayout>
+</BlogLayout>

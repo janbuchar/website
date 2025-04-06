@@ -1,12 +1,12 @@
 ---
 import { Anchor, PageTitle, UnstyledList } from "@elements";
-import PageLayout from "@layout";
+import BlogLayout from "@/BlogLayout.astro";
 import { css } from "@styled-system";
 import { getCollection } from "astro:content";
 const posts = await getCollection("blog");
 ---
 
-<PageLayout title="Archives | Jan Buchar">
+<BlogLayout title="Archives">
   <PageTitle>Blog archives</PageTitle>
   <UnstyledList>
     {
@@ -24,4 +24,4 @@ const posts = await getCollection("blog");
       ))
     }
   </UnstyledList>
-</PageLayout>
+</BlogLayout>

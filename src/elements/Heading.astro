@@ -1,7 +1,8 @@
 ---
-import { css } from "@styled-system";
+import { css, cx } from "@styled-system";
+const { class: className, ...props } = Astro.props;
 ---
 
-<h2 {...Astro.props} class={css({ fontSize: "heading" })}>
+<h2 {...props} class={cx(className, css({ fontSize: "heading" }))}>
   <slot />
 </h2>

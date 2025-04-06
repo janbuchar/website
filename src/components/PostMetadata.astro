@@ -1,14 +1,17 @@
 ---
+import { useTranslations } from "@i18n";
 import { css } from "@styled-system";
 import type { CollectionEntry } from "astro:content";
 
 interface Props {
   post: CollectionEntry<"blog">;
 }
+const t = useTranslations(Astro.currentLocale);
 ---
 
 <div class={css({ color: "polarNight4" })}>
-  Published on {
+  {t("publishedOn")}
+  {
     Astro.props.post.data.date.toLocaleString(Astro.currentLocale, {
       year: "numeric",
       month: "long",

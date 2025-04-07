@@ -2,7 +2,7 @@
 import type { GetStaticPaths } from "astro";
 import { getCollection, getEntry } from "astro:content";
 import { components, Heading } from "@elements";
-import PostMetadata from "@components/PostMetadata.astro";
+import { PostMetadata } from "@components";
 import BlogLayout from "@/BlogLayout.astro";
 
 const post = await getEntry("blog", Astro.params.slug)!;

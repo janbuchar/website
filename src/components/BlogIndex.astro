@@ -1,9 +1,8 @@
 ---
 import { getCollection } from "astro:content";
-import ContentPreview from "@components/ContentPreview.astro";
+import { ContentPreview, PostMetadata } from "@components";
 import { Heading } from "@elements";
 import { components } from "@elements";
-import PostMetadata from "@components/PostMetadata.astro";
 import { vstack } from "@styled-system/patterns";
 
 const posts = await getCollection("blog");

@@ -13,14 +13,21 @@ import SocialLink from "@components/SocialLink.astro";
 <PageLayout title="Bio" pageTitle="Hey, I'm Jan">
   <div
     slot="left"
-    class:list={[vstack({ gap: "large" }), css({ alignItems: "flex-start" })]}
+    class:list={[vstack({ gap: "large" }), css({ alignItems: "stretch" })]}
   >
     <Image
       src={portrait}
       alt="Portrait"
       class={css({ borderRadius: "large" })}
     />
-    <UnstyledList>
+    <UnstyledList
+      class={css({
+        background: "snowStorm3",
+        borderRadius: "large",
+        paddingX: "medium",
+        paddingY: "small",
+      })}
+    >
       <li>
         <SocialLink
           icon="mdi:linkedin"

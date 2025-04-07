@@ -1,15 +1,20 @@
 ---
-import { css } from "@styled-system";
+import { css, cx } from "@styled-system";
+
+const { class: className, ...props } = Astro.props;
 ---
 
 <ul
-  {...Astro.props}
-  class={css({
-    listStyleType: "none",
-    ["& li"]: {
-      marginY: "small",
-    },
-  })}
+  {...props}
+  class={cx(
+    className,
+    css({
+      listStyleType: "none",
+      ["& li"]: {
+        marginY: "small",
+      },
+    }),
+  )}
 >
   <slot />
 </ul>

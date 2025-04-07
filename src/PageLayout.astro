@@ -3,6 +3,7 @@ import { css } from "@styled-system";
 import "./index.css";
 import { PageTitle } from "@elements";
 import Navigation from "@components/Navigation.astro";
+import { hstack, vstack } from "@styled-system/patterns";
 
 interface Props {
   title?: string;
@@ -58,22 +59,32 @@ interface Props {
           gridColumnGap: "extraLarge",
         })}
       >
-        <div class={css({ gridArea: "top" })}>
+        <div
+          class:list={[
+            css({ gridArea: "top" }),
+            vstack({ gap: "large-half", alignItems: "stretch" }),
+          ]}
+        >
           <h1
             class={css({
               fontSize: "pageTitle",
-              borderBottomColor: "snowStorm1",
-              borderBottomWidth: "thick",
-              borderStyle: "solid",
               display: "flex",
               alignItems: "baseline",
               justifyContent: "space-between",
-              paddingBottom: "tiny",
+              lineHeight: "browserNormal",
             })}
           >
             {Astro.props.pageTitle}
             <Navigation />
           </h1>
+          <hr
+            class={css({
+              gridArea: "divider",
+              borderColor: "snowStorm2",
+              borderBottomWidth: "thick",
+              borderRadius: "large",
+            })}
+          />
         </div>
         {
           !Astro.slots.has("left") ? (

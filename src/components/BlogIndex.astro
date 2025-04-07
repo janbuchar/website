@@ -1,0 +1,30 @@
+---
+import { getCollection } from "astro:content";
+import ContentPreview from "@components/ContentPreview.astro";
+import { Heading } from "@elements";
+import { components } from "@elements";
+import PostMetadata from "@components/PostMetadata.astro";
+import { vstack } from "@styled-system/patterns";
+
+const posts = await getCollection("blog");
+---
+
+<div class={vstack({ alignItems: "flex-start", gap: "large" })}>
+  {
+    posts.map(async (it) => {
+      const { Content } = await it.render();
+
+      return (
+        <article>
+          <Heading>
+            <a href={`/blog/${it.slug}`}>{it.data.title}</a>
+          </Heading>
+          <PostMetadata post={it} />
+          <ContentPreview continuationLink={`/blog/${it.slug}`}>
+            <Content components={components} />
+          </ContentPreview>
+        </article>
+      );
+    })
+  }
+</div>

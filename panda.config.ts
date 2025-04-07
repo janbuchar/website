@@ -88,6 +88,7 @@ export default defineConfig({
           extraLarge: { value: "3rem" },
         },
         lineHeights: {
+          browserNormal: { value: "normal" },
           normal: { value: "1.5rem" },
           medium: { value: "2rem" },
         },

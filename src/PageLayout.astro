@@ -50,10 +50,18 @@ interface Props {
           paddingBottom: "large",
           display: "grid",
           gridTemplateAreas: `
-          'top top top'
-          'left right right'
-          `,
-          gridTemplateColumns: "[1fr 2fr]",
+            'top'
+            'left'
+            'right'
+            `,
+          gridTemplateColumns: "[minmax(0, auto)]",
+          lg: {
+            gridTemplateAreas: `
+            'top top top'
+            'left right right'
+            `,
+            gridTemplateColumns: "[1fr 2fr]",
+          },
           gridRowGap: "large",
           gridColumnGap: "extraLarge",
         })}
@@ -67,10 +75,16 @@ interface Props {
           <h1
             class={css({
               fontSize: "pageTitle",
-              display: "flex",
-              alignItems: "baseline",
-              justifyContent: "space-between",
               lineHeight: "browserNormal",
+              display: "flex",
+              flexDirection: "column-reverse",
+              alignItems: "center",
+              gap: "medium",
+              lg: {
+                flexDirection: "row",
+                alignItems: "baseline",
+                justifyContent: "space-between",
+              },
             })}
           >
             {Astro.props.pageTitle}

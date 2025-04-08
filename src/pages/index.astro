@@ -1,53 +1,14 @@
 ---
 import PageLayout from "@/PageLayout.astro";
-import { css } from "@styled-system";
-import { Anchor, Paragraph, UnstyledList } from "@elements";
-import { FrontPageSection, SocialLink } from "@components";
+import { Anchor, Paragraph } from "@elements";
+import { FrontPageSection, FrontPageSidebar } from "@components";
 import { Icon } from "astro-icon/components";
-import { Image } from "astro:assets";
-import portrait from "../images/portrait.jpg";
 import { vstack } from "@styled-system/patterns";
 ---
 
-<PageLayout title="Bio" pageTitle="Hey, I'm Jan">
-  <div slot="left" class={vstack({ gap: "large", alignItems: "stretch" })}>
-    <Image
-      src={portrait}
-      alt="Portrait"
-      class={css({ borderRadius: "large" })}
-    />
-    <UnstyledList
-      class={css({
-        background: "snowStorm3",
-        borderRadius: "large",
-        paddingX: "medium",
-        paddingY: "small",
-      })}
-    >
-      <li>
-        <SocialLink
-          icon="mdi:linkedin"
-          title="LinkedIn"
-          href="//www.linkedin.com/in/jan-buchar/"
-        />
-      </li>
-      <li>
-        <SocialLink
-          icon="mdi:github"
-          title="Github"
-          href="//github.com/janbuchar"
-        />
-      </li>
-      <li>
-        <SocialLink
-          icon="mdi:stackoverflow"
-          title="Stack overflow"
-          href="//stackoverflow.com/users/2839862/jan-buchar"
-        />
-      </li>
-    </UnstyledList>
-  </div>
-  <div slot="main" class:list={[vstack({ gap: "large" })]}>
+<PageLayout title="Bio" pageTitle="Hey, I'm Jan!">
+  <FrontPageSidebar slot="left" />
+  <div slot="main" class={vstack({ gap: "large" })}>
     <FrontPageSection title="Programmer">
       <Icon slot="icon" name="mdi:code" />
       <Paragraph>

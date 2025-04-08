@@ -14,6 +14,8 @@ interface Props {
   href={Astro.props.href}
   class:list={[hstack(), css({ color: "polarNight1" })]}
 >
-  <Icon name={Astro.props.icon} class={css({ fontSize: "larger" })} />
-  {Astro.props.title}</a
->
+  <Icon
+    name={Astro.props.icon}
+    class={css({ fontSize: { base: "huge", lg: "larger" } })}
+  /><span class={css({ hideBelow: "lg" })}> {Astro.props.title}</span>
+</a>

@@ -1,0 +1,48 @@
+---
+import { css } from "@styled-system";
+import { UnstyledList } from "@elements";
+import { SocialLink } from "@components";
+import { Image } from "astro:assets";
+import portrait from "../images/portrait.jpg";
+import { vstack } from "@styled-system/patterns";
+---
+
+<div class={vstack({ gap: "large", alignItems: "stretch" })}>
+  <Image src={portrait} alt="Portrait" class={css({ borderRadius: "large" })} />
+  <UnstyledList
+    class={css({
+      display: "flex",
+      justifyContent: "space-around",
+      lg: {
+        flexDirection: "column",
+        gap: "small",
+        background: "snowStorm3",
+        borderRadius: "large",
+        paddingX: "medium",
+        paddingY: "medium",
+      },
+    })}
+  >
+    <li>
+      <SocialLink
+        icon="mdi:linkedin"
+        title="LinkedIn"
+        href="//www.linkedin.com/in/jan-buchar/"
+      />
+    </li>
+    <li>
+      <SocialLink
+        icon="mdi:github"
+        title="Github"
+        href="//github.com/janbuchar"
+      />
+    </li>
+    <li>
+      <SocialLink
+        icon="mdi:stackoverflow"
+        title="Stack overflow"
+        href="//stackoverflow.com/users/2839862/jan-buchar"
+      />
+    </li>
+  </UnstyledList>
+</div>

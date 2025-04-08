@@ -1,10 +1,68 @@
 ---
 import PageLayout from "@/PageLayout.astro";
-import { css } from "@styled-system";
+import { Anchor, Paragraph } from "@elements";
+import { FrontPageSection, FrontPageSidebar } from "@components";
+import { Icon } from "astro-icon/components";
+import { vstack } from "@styled-system/patterns";
 ---
 
-<PageLayout title="Jan Buchar" pageTitle="Jsem Jan...">
-  <h1 class={css({ bg: "red" })}>
-    Hello {Astro.currentLocale}
-  </h1>
-</PageLayout>
+<PageLayout title="Bio" pageTitle="Jsem Jan!">
+  <FrontPageSidebar slot="left" />
+  <div slot="main" class={vstack({ gap: "large" })}>
+    <FrontPageSection title="Programátor">
+      <Icon slot="icon" name="mdi:code" />
+      <Paragraph>
+        V současnosti pracuju pro <Anchor href="//apify.com/">Apify</Anchor> jako
+        vývojář open-source toolingu v TypeScriptu a Pythonu. Věnuju se hlavně
+        <Anchor href="//crawlee.dev/">Crawlee</Anchor>, našemu framworku pro web
+        scraping, a jeho <Anchor href="//crawlee.dev/python"
+          >portu do Pythonu</Anchor
+        >. Snažím se psát užitečný software a na první místo stavím
+        ergonomičnost pro vývojáře.
+      </Paragraph>
+      <Paragraph>
+        S programováním jsem se poprvé setkal když mi bylo 12. Vytvořil jsem si
+        webovou stránku v čistém HTML - myslím že byla o počítačových hrách a za
+        moc nestála. Po pár obměnách jsem se začal učit PHP, Javascript a
+        Python. Okouzlila mě ta specifická kombinace architektury a řešení
+        problémů, se kterou se člověk při programování setká, a uvědomil jsem
+        si, že by mi vůbec nevadilo se tím živit.
+      </Paragraph>
+    </FrontPageSection>
+    <FrontPageSection title="Matfyzák">
+      <Icon slot="icon" name="mdi:university" />
+      <Paragraph>
+        Vytudoval jsem obor Softwarové systémy na Matfyzu v Praze. Kromě spousty
+        nejrůznějších druhů matematiky mi to dalo příležitost vyzkoušet
+        dospělácké jazyky jako C++ nebo Javu (takže vím, že o moc nepřicházím,
+        když v nich neprogramuju). Hodně jsem si užil předměty zaměřené na
+        vnitřnosti operačních systémů a architekturu distribuovaných systémů.</Paragraph
+      ><Paragraph
+        >Možná nejzajímavější projekt na kterém jsem ve škole pracovat byl <Anchor
+          href="//recodex.github.io">ReCodEx</Anchor
+        > - systém na automatické vyhodnocování programátorských úloh. V lidské řeči,
+        je to systém, kam studenti nahrávají zdrojové kódy a dostanou skoro okamžitou
+        zpětnou vazbu - zkompiluje se to? Projde to testy? Funguje to dost rychle?
+        To samozřejmě pomáhá i učitelům, kteří tohle nemusí vyhodnocovat pro každý
+        úkol ručně.
+      </Paragraph>
+    </FrontPageSection>
+    <FrontPageSection title="Nadšenec do open source">
+      <Icon slot="icon" name="mdi:linux" />
+      <Paragraph>
+        Snažím se používat svobodný software kdykoliv to jde a občas přispívám
+        do open source projektů. Na notebooku mám GNU/Linux a taky spravuju pár
+        Linuxových serverů, kvůli práci i jen tak, pro zábavu. Používám Arch
+        Linux a programuju v Neovimu. Jestli chcete, můžete si prohlédnout <Anchor
+          href="//github.com/janbuchar/dotfiles">mojí konfiguraci</Anchor
+        >.
+      </Paragraph>
+      <Paragraph
+        >Mimo to mám to štěstí, že za práci na open source dostávám zaplaceno -
+        podívejte se na <Anchor href="//github.com/apify"
+          >Apify na GitHubu</Anchor
+        >.</Paragraph
+      >
+    </FrontPageSection>
+  </div></PageLayout
+>

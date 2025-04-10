@@ -10,3 +10,6 @@ export const legacyTags = [
   "php",
   "web",
 ];
+
+export const siteUrl = "https://bucharjan.cz";
+export const authorName = "Jan Buchar";

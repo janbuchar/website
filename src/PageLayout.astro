@@ -3,6 +3,7 @@ import { css } from "@styled-system";
 import "./index.css";
 import { Navigation } from "@components";
 import { vstack } from "@styled-system/patterns";
+import { siteUrl } from "@globals";
 
 interface Props {
   title?: string;
@@ -19,6 +20,12 @@ interface Props {
     <title>
       {Astro.props.title ? `${Astro.props.title} | Jan Buchar` : "Jan Buchar"}
     </title>
+    <link
+      href={`${siteUrl}/feeds/all.atom.xml`}
+      type="application/atom+xml"
+      rel="alternate"
+      title="Jan Buchar ATOM Feed"
+    />
   </head>
   <body
     class={css({

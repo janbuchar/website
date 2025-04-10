@@ -1,0 +1,129 @@
+---
+import { css } from "@styled-system";
+import "./index.css";
+import { Navigation } from "@components";
+import { vstack } from "@styled-system/patterns";
+import { siteUrl } from "@globals";
+
+interface Props {
+  title?: string;
+  pageTitle: string;
+}
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+    <title>
+      {Astro.props.title ? `${Astro.props.title} | Jan Buchar` : "Jan Buchar"}
+    </title>
+    <link
+      href={`${siteUrl}/feeds/all.atom.xml`}
+      type="application/atom+xml"
+      rel="alternate"
+      title="Jan Buchar ATOM Feed"
+    />
+  </head>
+  <body
+    class={css({
+      background: `[linear-gradient(120deg,token(colors.polarNight4),token(colors.polarNight2))]`,
+      backgroundAttachment: "fixed",
+      fontFamily: "normal",
+      fontSize: "normal",
+      display: "flex",
+      justifyContent: "center",
+    })}
+  >
+    <div
+      class={css({
+        background: "white",
+        minHeight: "[100vh]",
+        width: {
+          base: "[100%]",
+          sm: "[calc(token(breakpoints.sm) - token(spacing.large))]",
+          lg: "[calc(token(breakpoints.lg) - token(spacing.large))]",
+          xl: "[calc(token(breakpoints.xl) - token(spacing.large))]",
+        },
+      })}
+    >
+      <main
+        class={css({
+          paddingTop: "medium",
+          paddingLeft: "large",
+          paddingRight: "large",
+          paddingBottom: "large",
+          display: "grid",
+          gridTemplateAreas: `
+            'top'
+            'left'
+            'right'
+            `,
+          gridTemplateColumns: "[minmax(0, auto)]",
+          lg: {
+            gridTemplateAreas: `
+            'top top top'
+            'left right right'
+            `,
+            gridTemplateColumns: "[1fr 2fr]",
+          },
+          gridRowGap: "large",
+          gridColumnGap: "extraLarge",
+        })}
+      >
+        <div
+          class:list={[
+            css({ gridArea: "top" }),
+            vstack({ gap: "large-half", alignItems: "stretch" }),
+          ]}
+        >
+          <h1
+            class={css({
+              fontSize: "pageTitle",
+              lineHeight: "browserNormal",
+              display: "flex",
+              flexDirection: "column-reverse",
+              alignItems: "center",
+              gap: "medium",
+              lg: {
+                flexDirection: "row",
+                alignItems: "baseline",
+                justifyContent: "space-between",
+              },
+            })}
+          >
+            {Astro.props.pageTitle}
+            <Navigation />
+          </h1>
+          <hr
+            class={css({
+              gridArea: "divider",
+              borderColor: "snowStorm2",
+              borderBottomWidth: "thick",
+              borderRadius: "large",
+            })}
+          />
+        </div>
+        {
+          !Astro.slots.has("left") ? (
+            <div class={css({ gridArea: "left/left/left/right" })}>
+              <slot name="main" />
+            </div>
+          ) : (
+            <Fragment>
+              <div class={css({ gridArea: "right" })}>
+                <slot name="main" />
+              </div>
+              <div class={css({ gridArea: "left" })}>
+                <slot name="left" />
+              </div>
+            </Fragment>
+          )
+        }
+        <slot />
+      </main>
+    </div>
+  </body>
+</html>

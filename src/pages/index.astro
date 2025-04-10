@@ -1,0 +1,71 @@
+---
+import PageLayout from "@/PageLayout.astro";
+import { Anchor, Paragraph } from "@elements";
+import { FrontPageSection, FrontPageSidebar } from "@components";
+import { Icon } from "astro-icon/components";
+import { vstack } from "@styled-system/patterns";
+---
+
+<PageLayout title="Bio" pageTitle="Hey, I'm Jan!">
+  <FrontPageSidebar slot="left" />
+  <div slot="main" class={vstack({ gap: "large" })}>
+    <FrontPageSection title="Programmer">
+      <Icon slot="icon" name="mdi:code" />
+      <Paragraph>
+        These days, I work at <Anchor href="//apify.com/">Apify</Anchor> as a developer
+        of open-source tooling in TypeScript and Python. I spend most of my time
+        on
+        <Anchor href="//crawlee.dev/">Crawlee</Anchor>, our web scraping
+        framework, and its <Anchor href="//crawlee.dev/python"
+          >Python counterpart</Anchor
+        >. I try hard to write useful software and advocate for great developer
+        experience.
+      </Paragraph>
+      <Paragraph>
+        My first experience with coding was when I was 12. I made my first
+        website in pure HTML - I think it was about video games and that it was
+        pretty uninspired. After a few iterations of that, I started to learn
+        PHP followed by Javascript and Python. I got captivated by that
+        particular mix of architecture and problem solving found in programming
+        and I realized that I wouldn't mind getting paid for doing this every
+        day.
+      </Paragraph>
+    </FrontPageSection>
+    <FrontPageSection title="Computer scientist">
+      <Icon slot="icon" name="mdi:university" />
+      <Paragraph>
+        I attended the Software Systems programme at the Faculty of Mathematics
+        and Physics of the Charles University in Prague. Apart from loads of
+        math, it gave me a good opportunity to explore big boy languages like
+        C++ and Java (so that I know I'm not missing out by not using those
+        much). I really enjoyed courses focused on operating system internals
+        and distributed system architecture.</Paragraph
+      ><Paragraph
+        >Probably the coolest project I took part in while studying was{" "}
+        <Anchor href="//recodex.github.io">ReCodEx</Anchor> - a system for automated
+        evaluation of programming assignment solutions. In plain language, this is
+        a system where students submit source code and get near instant feedback
+        on their programs - does it even compile? Does it pass tests? Is it fast
+        enough? This is also a great help for teachers who get a preliminary assessment
+        of each submission.
+      </Paragraph>
+    </FrontPageSection>
+    <FrontPageSection title="Open source enthusiast">
+      <Icon slot="icon" name="mdi:linux" />
+      <Paragraph>
+        I try to use free software whenever possible and occasionally contribute
+        to open source projects. I run GNU/Linux on my laptop, and also maintain
+        a couple of Linux servers, both for work and fun. I use Arch, btw, and
+        code in Neovim. Feel free to browse my <Anchor
+          href="//github.com/janbuchar/dotfiles">dotfiles</Anchor
+        > if you're into that.
+      </Paragraph>
+      <Paragraph
+        >On top of that, I'm lucky enough to work on open source software for a
+        living, which is pretty awesome - check out <Anchor
+          href="//github.com/apify">Apify's GitHub</Anchor
+        >.</Paragraph
+      >
+    </FrontPageSection>
+  </div>
+</PageLayout>

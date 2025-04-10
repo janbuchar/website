@@ -1,0 +1,21 @@
+---
+import { stripLanguageFromPath } from "@i18n";
+
+interface Props {
+  href: string;
+  matcher?: RegExp;
+  class?: (isActive: boolean) => string;
+}
+
+const path = stripLanguageFromPath(Astro.url.pathname);
+
+const isActive = Astro.props.matcher
+  ? path.match(Astro.props.matcher) !== null
+  : path.startsWith(Astro.props.href);
+
+const className = Astro.props.class?.(isActive);
+---
+
+<a href={Astro.props.href} class={className}>
+  <slot />
+</a>

@@ -1,0 +1,17 @@
+---
+import { css, cx } from "@styled-system";
+const { class: className, ...props } = Astro.props;
+---
+
+<h1
+  {...props}
+  class={cx(
+    className,
+    css({
+      fontSize: "pageTitle",
+      lineHeight: "browserNormal",
+    }),
+  )}
+>
+  <slot />
+</h1>

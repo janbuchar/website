@@ -1,0 +1,26 @@
+---
+import { Heading } from "@elements";
+import { css } from "@styled-system";
+import { hstack } from "@styled-system/patterns";
+
+interface Props {
+  title: string;
+}
+---
+
+<div>
+  <Heading class={hstack({ gap: "medium" })}
+    ><div
+      class={css({
+        background: "snowStorm2",
+        padding: "small",
+        borderRadius: "large",
+        color: "polarNight4",
+      })}
+    >
+      <slot name="icon" />
+    </div>
+    {Astro.props.title}</Heading
+  >
+  <slot />
+</div>

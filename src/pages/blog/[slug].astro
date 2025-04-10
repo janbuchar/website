@@ -1,0 +1,21 @@
+---
+import type { GetStaticPaths } from "astro";
+import { getCollection, getEntry } from "astro:content";
+import { components, PageTitle } from "@elements";
+import { PostMetadata } from "@components";
+import BlogLayout from "@/BlogLayout.astro";
+
+const post = await getEntry("blog", Astro.params.slug)!;
+const { Content } = await post.render();
+
+export const getStaticPaths = (async () => {
+  const posts = await getCollection("blog");
+  return posts.map(({ slug }) => ({ params: { slug } }));
+}) satisfies GetStaticPaths;
+---
+
+<BlogLayout title={post.data.title}>
+  <PageTitle>{post.data.title}</PageTitle>
+  <PostMetadata post={post} />
+  <Content components={components} />
+</BlogLayout>

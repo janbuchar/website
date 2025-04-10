@@ -1,0 +1,54 @@
+---
+import { getAbsoluteLocaleUrl } from "astro:i18n";
+import { css, cva } from "@styled-system";
+import { Link } from "@components";
+import { hstack } from "@styled-system/patterns";
+import { languages, stripLanguageFromPath } from "@i18n";
+
+const navLink = cva({
+  base: {
+    fontSize: "larger",
+    color: "polarNight4",
+    "&:hover": {
+      color: "polarNight1",
+    },
+  },
+  variants: {
+    activity: {
+      inactive: {},
+      active: {
+        textDecoration: "underline",
+      },
+    },
+  },
+  defaultVariants: { activity: "inactive" },
+});
+
+const path = stripLanguageFromPath(Astro.url.pathname);
+---
+
+<nav class:list={[hstack({ gap: "medium" }), css({ alignItems: "stretch" })]}>
+  <Link
+    href={getAbsoluteLocaleUrl(Astro.currentLocale!, "/")}
+    matcher={/^\/$/}
+    class={(isActive) =>
+      navLink({ activity: isActive ? "active" : "inactive" })}>Bio</Link
+  >
+  <Link
+    href={getAbsoluteLocaleUrl(Astro.currentLocale!, "/blog")}
+    matcher={/\/blog\/.*/}
+    class={(isActive) =>
+      navLink({ activity: isActive ? "active" : "inactive" })}>Blog</Link
+  >
+  {
+    Astro.currentLocale === "en" ? (
+      <Link href={getAbsoluteLocaleUrl("cs", path)} class={() => navLink()}>
+        {languages.cs}
+      </Link>
+    ) : (
+      <Link href={getAbsoluteLocaleUrl("en", path)} class={() => navLink()}>
+        {languages.en}
+      </Link>
+    )
+  }
+</nav>

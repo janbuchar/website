@@ -1,0 +1,10 @@
+---
+import { legacyTags } from "@globals";
+import type { GetStaticPaths } from "astro";
+
+export const getStaticPaths = (async () => {
+  return legacyTags.map((tag) => ({ params: { tag } }));
+}) satisfies GetStaticPaths;
+
+return Astro.redirect(`/blog/`);
+---

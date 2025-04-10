@@ -1,0 +1,15 @@
+{
+  "extends": "astro/tsconfigs/strict",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@styled-system": ["styled-system/css"],
+      "@styled-system/*": ["styled-system/*"],
+      "@components": ["src/components/index.astro"],
+      "@elements": ["src/elements/index.astro"],
+      "@i18n": ["src/i18n.ts"],
+      "@globals": ["src/globals.ts"],
+      "@/*": ["src/*"]
+    }
+  }
+}

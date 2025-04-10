@@ -1,0 +1,37 @@
+---
+import PageTitle from "./PageTitle.astro";
+export { default as PageTitle } from "./PageTitle.astro";
+
+import Heading from "./Heading.astro";
+export { default as Heading } from "./Heading.astro";
+
+import Subheading from "./Subheading.astro";
+export { default as Subheading } from "./Subheading.astro";
+
+import Paragraph from "./Paragraph.astro";
+export { default as Paragraph } from "./Paragraph.astro";
+
+import Anchor from "./Anchor.astro";
+export { default as Anchor } from "./Anchor.astro";
+
+import InlineCode from "./InlineCode.astro";
+export { default as InlineCode } from "./InlineCode.astro";
+
+import CodeListing from "./CodeListing.astro";
+export { default as CodeListing } from "./CodeListing.astro";
+
+export { default as UnstyledList } from "./UnstyledList.astro";
+
+import HorizontalLine from "./HorizontalLine.astro";
+
+export const components = {
+  h1: PageTitle,
+  h2: Heading,
+  h3: Subheading,
+  p: Paragraph,
+  a: Anchor,
+  hr: HorizontalLine,
+  code: InlineCode,
+  pre: CodeListing,
+};
+---

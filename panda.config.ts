@@ -16,6 +16,8 @@ export default defineConfig({
 
   strictTokens: true,
 
+  hash: true,
+
   // Useful for theme customization
   theme: {
     extend: {

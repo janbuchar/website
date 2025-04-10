@@ -1,0 +1,23 @@
+---
+import { Anchor, UnstyledList } from "@elements";
+import { css } from "@styled-system";
+import { getCollection } from "astro:content";
+const posts = await getCollection("blog");
+---
+
+<UnstyledList>
+  {
+    posts.map(({ data, slug }) => (
+      <li>
+        <span class={css({ color: "polarNight4" })}>
+          {data.date.toLocaleString(Astro.currentLocale, {
+            day: "2-digit",
+            month: "2-digit",
+            year: "numeric",
+          })}
+        </span>
+        <Anchor href={`/blog/${slug}`}>{data.title}</Anchor>
+      </li>
+    ))
+  }
+</UnstyledList>

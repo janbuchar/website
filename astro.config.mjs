@@ -11,9 +11,11 @@ export default defineConfig({
     defaultLocale: "en",
     locales: ["en", "cs"],
     fallback: { cs: "en" },
-    routing: {
-      prefixDefaultLocale: false,
-    },
+    routing: "manual",
+  },
+
+  build: {
+    format: "preserve",
   },
 
   markdown: {

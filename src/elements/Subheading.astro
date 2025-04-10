@@ -2,6 +2,9 @@
 import { css } from "@styled-system";
 ---
 
-<h3 {...Astro.props} class={css({ fontSize: "subheading", lineHeight: "browserNormal" })}>
+<h3
+  {...Astro.props}
+  class={css({ fontSize: "subheading", lineHeight: "browserNormal" })}
+>
   <slot />
 </h3>

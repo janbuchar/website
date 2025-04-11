@@ -44,6 +44,17 @@ jobs:
           yarn prepare
           yarn build
         working-directory: ${{ env.BUILD_PATH }}
+      - uses: JarvusInnovations/background-action@v1
+        name: Run preview server
+        with:
+          run: |
+            yarn preview --port 4321
+          wait-on: http://localhost:4321
+      - name: Check links
+        uses: lycheeverse/lychee-action@v2
+        with:
+          fail: true
+          args: dist -b http://localhost:4321
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

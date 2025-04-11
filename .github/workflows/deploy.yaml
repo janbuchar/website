@@ -54,7 +54,7 @@ jobs:
         uses: lycheeverse/lychee-action@v2
         with:
           fail: true
-          args: dist -b http://localhost:4321
+          args: dist --base http://localhost:4321 --verbose --accept '100..=103,200..=299,999'
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

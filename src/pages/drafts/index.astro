@@ -1,0 +1,21 @@
+---
+import BlogLayout from "@/BlogLayout.astro";
+import { UnstyledList } from "@elements";
+import { getCollection } from "astro:content";
+
+const drafts = await getCollection("drafts");
+
+export const prerender = false;
+---
+
+<BlogLayout title="Blog">
+  <UnstyledList
+    >{
+      drafts.map((draft) => (
+        <li>
+          <a href={`/drafts/${draft.slug}`}>{draft.data.title}</a>
+        </li>
+      ))
+    }</UnstyledList
+  >
+</BlogLayout>

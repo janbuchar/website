@@ -1,0 +1,17 @@
+---
+import { getEntry } from "astro:content";
+import { components, PageTitle } from "@elements";
+import { PostMetadata } from "@components";
+import BlogLayout from "@/BlogLayout.astro";
+
+const post = (await getEntry("drafts", Astro.params.slug!))!;
+const { Content } = await post.render();
+
+export const prerender = false;
+---
+
+<BlogLayout title={post.data.title}>
+  <PageTitle>{post.data.title}</PageTitle>
+  <PostMetadata post={post} />
+  <Content components={components} />
+</BlogLayout>

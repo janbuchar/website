@@ -5,8 +5,6 @@ import mdx from "@astrojs/mdx";
 
 import icon from "astro-icon";
 
-import node from "@astrojs/node";
-
 // https://astro.build/config
 export default defineConfig({
   i18n: {
@@ -27,8 +25,4 @@ export default defineConfig({
   },
 
   integrations: [mdx(), icon()],
-
-  adapter: node({
-    mode: "standalone",
-  }),
 });

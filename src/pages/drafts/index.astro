@@ -4,8 +4,6 @@ import { UnstyledList } from "@elements";
 import { getCollection } from "astro:content";
 
 const drafts = await getCollection("drafts");
-
-export const prerender = false;
 ---
 
 <BlogLayout title="Blog">

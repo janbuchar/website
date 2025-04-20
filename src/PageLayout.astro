@@ -26,7 +26,17 @@ interface Props {
       rel="alternate"
       title="Jan Buchar ATOM Feed"
     />
-    <script is:inline defer src="https://analytics.bucharjan.cz/script.js" data-website-id="8a246cfd-bc91-4d61-9598-5e499110a41f"></script>
+    {
+      import.meta.env.mode === "production" && (
+        <script
+          src="https://analytics.bucharjan.cz/script.js"
+          data-website-id="8a246cfd-bc91-4d61-9598-5e499110a41f"
+          data-astro-rerun
+          is:inline
+          defer
+        />
+      )
+    }
   </head>
   <body
     class={css({

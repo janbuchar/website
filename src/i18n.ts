@@ -1,3 +1,5 @@
+import { getAbsoluteLocaleUrl as _getAbsoluteLocaleUrl } from "astro:i18n";
+
 export const languages = {
   cs: "Česky",
   en: "English",
@@ -24,4 +26,12 @@ export function useTranslations(language: string | undefined) {
 
 export function stripLanguageFromPath(pathname: string) {
   return pathname.replace(/^\/cs/, "");
+}
+
+export function getAbsoluteLocaleUrl(language: string, path: string) {
+  if (path.startsWith("/drafts")) {
+    return path;
+  }
+
+  return _getAbsoluteLocaleUrl(language, path);
 }
